@@ -8,26 +8,62 @@ public class Posts {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Integer postId;
 
-    private String message;
+    private Integer userId;
 
-//    @Valid
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "posts")
+    private String title;
+
+    private String body;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "posts")
     private List<Comments>  commentsList;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "posts")
+    private List<Likes>  likesList;
 
     public Posts() {
     }
 
-    public Posts(Integer id, String message) {
-        this.id = id;
-        this.message = message;
+    public Posts(Integer postId, Integer userId, String title, String body, List<Comments> commentsList, List<Likes> likesList) {
+        this.postId = postId;
+        this.userId = userId;
+        this.title = title;
+        this.body = body;
+        this.commentsList = commentsList;
+        this.likesList = likesList;
     }
 
-    public Posts(Integer id, String message, List<Comments> commentsList) {
-        this.id = id;
-        this.message = message;
-        this.commentsList = commentsList;
+    public Integer getPostId() {
+        return postId;
+    }
+
+    public void setPostId(Integer postId) {
+        this.postId = postId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public List<Comments> getCommentsList() {
@@ -38,19 +74,11 @@ public class Posts {
         this.commentsList = commentsList;
     }
 
-    public Integer getId() {
-        return id;
+    public List<Likes> getLikesList() {
+        return likesList;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public void setLikesList(List<Likes> likesList) {
+        this.likesList = likesList;
     }
 }
