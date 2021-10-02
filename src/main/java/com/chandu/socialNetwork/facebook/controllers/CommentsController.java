@@ -1,7 +1,6 @@
 package com.chandu.socialNetwork.facebook.controllers;
 
 import com.chandu.socialNetwork.facebook.models.Comments;
-import com.chandu.socialNetwork.facebook.repository.CommentRepository;
 import com.chandu.socialNetwork.facebook.services.CommentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,12 +15,8 @@ import java.util.List;
 
 @Controller
 public class CommentsController {
-
     @Autowired
     CommentsService commentsService;
-
-    @Autowired
-    CommentRepository commentRepository;
 
     @GetMapping("/posts/{postId}/comments")
     public ResponseEntity getCommentsByPost(@PathVariable Integer postId) {

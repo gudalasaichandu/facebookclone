@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 public class Comments {
-
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "posts_id", referencedColumnName = "postId")
@@ -34,56 +33,4 @@ public class Comments {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "comments")
     private List<Likes> likesList;
-
-//    public Posts getPosts() {
-//        return posts;
-//    }
-//
-//    public void setPosts(Posts posts) {
-//        this.posts = posts;
-//    }
-//
-//    public Comments(Posts posts, List<Likes> likesList, String name, String comment, Integer commentId) {
-//        this.commentId = commentId;
-//        this.name = name;
-//        this.comment = comment;
-//        this.likesList = likesList;
-//        this.posts = posts;
-//
-//    }
-//
-//    public List<Likes> getLikesList() {
-//        return likesList;
-//    }
-//
-//    public void setLikesList(List<Likes> likesList) {
-//        this.likesList = likesList;
-//    }
-//
-//    public Comments() {
-//    }
-//
-//    public String getComment() {
-//        return comment;
-//    }
-//
-//    public void setComment(String comment) {
-//        this.comment = comment;
-//    }
-//
-//    public Integer getCommentId() {
-//        return commentId;
-//    }
-//
-//    public void setCommentId(Integer commentId) {
-//        this.commentId = commentId;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
 }

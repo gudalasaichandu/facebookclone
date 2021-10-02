@@ -6,8 +6,6 @@ import com.chandu.socialNetwork.facebook.services.PostsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class PostsServiceImpl implements PostsService {
 
@@ -20,8 +18,8 @@ public class PostsServiceImpl implements PostsService {
     }
 
     @Override
-    public List<Posts> getAllPosts(){
-        return (List<Posts>) postRepository.findAll();
+    public Iterable<Posts> getAllPosts(){
+        return postRepository.findAll();
     }
 
     @Override

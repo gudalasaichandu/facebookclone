@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class LikesController {
-
     @Autowired
     LikesService likesService;
 
@@ -30,6 +29,6 @@ public class LikesController {
     @PostMapping("/posts/{postId}/comments/{commentId}/likes")
     public ResponseEntity<Likes> addLikeToComment(@PathVariable Integer commentId,@PathVariable Integer postId, @RequestBody Likes likes) {
         Likes like = likesService.AddLikeToComment(postId,commentId,likes);
-        return new ResponseEntity<>(likes, HttpStatus.OK);
+        return new ResponseEntity<>(like, HttpStatus.OK);
     }
 }

@@ -5,13 +5,14 @@ import com.chandu.socialNetwork.facebook.models.Comments;
 import com.chandu.socialNetwork.facebook.models.Posts;
 import com.chandu.socialNetwork.facebook.repository.CommentRepository;
 import com.chandu.socialNetwork.facebook.repository.PostRepository;
+import com.chandu.socialNetwork.facebook.services.CommentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CommentsServiceImpl {
+public class CommentsServiceImpl implements CommentsService {
 
     @Autowired
     PostRepository postRepository;

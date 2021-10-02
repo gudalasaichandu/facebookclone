@@ -7,9 +7,12 @@ import com.chandu.socialNetwork.facebook.models.Posts;
 import com.chandu.socialNetwork.facebook.repository.CommentRepository;
 import com.chandu.socialNetwork.facebook.repository.LikeRepository;
 import com.chandu.socialNetwork.facebook.repository.PostRepository;
+import com.chandu.socialNetwork.facebook.services.LikesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class LikesServiceImpl {
+@Service
+public class LikesServiceImpl implements LikesService {
     @Autowired
     PostRepository postRepository;
 
